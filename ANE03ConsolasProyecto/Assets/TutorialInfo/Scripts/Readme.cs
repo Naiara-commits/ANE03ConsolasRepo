@@ -1,16 +1,28 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public class Readme : ScriptableObject
 {
-    public Texture2D icon;
-    public string title;
+    [Header("Header")]
+    public Texture2D headerImage;
+    public Texture2D logo;
+    public string title = "HDRPLabStudio";
+
+    [Header("Content")]
     public Section[] sections;
+
+    [HideInInspector]
     public bool loadedLayout;
 
     [Serializable]
     public class Section
     {
-        public string heading, text, linkText, url;
+        public string heading;
+
+        [TextArea(3, 10)]
+        public string text;
+
+        public string linkText;
+        public string url;
     }
 }
